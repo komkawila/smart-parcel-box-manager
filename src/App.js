@@ -10,6 +10,7 @@ import {
 import Nav from './Layout/Nav';
 import Footer from './Layout/Footer';
 import Edit from './Page/Edit';
+import Regis from './Page/Regis';
 
 export default function App() {
   return (
@@ -39,9 +40,11 @@ export default function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          {/* <Route path="/edit"> */}
           <Route path="/edit/:uid">
             <Edit />
+          </Route>
+          <Route path="/regis/:uid">
+            <Regis />
           </Route>
 
         </Switch>

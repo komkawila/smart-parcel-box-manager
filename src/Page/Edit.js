@@ -8,9 +8,6 @@ import {api} from '../Constants'
 import Swal from 'sweetalert2'
 const Edit = () => {
     const [data,setData] = useState([]);
-    const [name,setName] = useState("");
-    const [email,setEmail] = useState("");
-    const [tel,setTel] = useState("");
     const [waiting,setWaiting] = useState(false);
 
     const {uid} = useParams();
@@ -22,17 +19,11 @@ const Edit = () => {
             console.log(`res = `); 
             console.log(res.data.data);
             if(res.data.data.status){
-                setName(res.data.data.message.user_name);
-                setEmail(res.data.data.message.user_email);
-                setTel(res.data.data.message.user_tel);
                 setData(res.data.data.message);
                 setWaiting(true);
             }
         });
     },[]);
-    //  setData({ ...data, user_name: e.target.value })
-    //  setData({ ...data, user_email: e.target.value })
-    //  setData({ ...data, user_tel: e.target.value })
     
     const saveFunc = () => {
         Swal.fire({
