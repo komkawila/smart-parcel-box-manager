@@ -9,6 +9,8 @@ import {
 
 import Nav from './Layout/Nav';
 import Footer from './Layout/Footer';
+import Edit from './Page/Edit';
+
 export default function App() {
   return (
     <Router>
@@ -37,6 +39,10 @@ export default function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
+          <Route path="/edit">
+            <Edit />
+          </Route>
+
         </Switch>
         <Footer/>
       </div>
