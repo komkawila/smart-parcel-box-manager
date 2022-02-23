@@ -66,7 +66,7 @@ const Edit = () => {
     else {
         return (
             <section class="section">
-                <h1>Waiting</h1>
+                <h1>Loading....</h1>
             </section>
         );
     }
