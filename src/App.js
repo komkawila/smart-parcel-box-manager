@@ -39,7 +39,8 @@ export default function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/edit">
+          {/* <Route path="/edit"> */}
+          <Route path="/edit/:uid">
             <Edit />
           </Route>
 
