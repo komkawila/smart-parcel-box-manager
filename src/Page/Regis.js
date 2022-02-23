@@ -41,7 +41,7 @@ const Regis = () => {
             }).then((result) => {
             if (result.isConfirmed) {
                 console.log(data)
-                axios.post(`${api}/api/user/user/add/${data.user_id}`,{
+                axios.post(`${api}/api/user/user/add`,{
                     user_name : data.user_name,
                     user_tel : data.user_tel,
                     user_email : data.user_email,
