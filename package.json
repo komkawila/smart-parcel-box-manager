@@ -11,6 +11,7 @@
     "react-dom": "latest",
     "react-router-dom": "^5.3.0",
     "react-scripts": "latest",
+    "sweetalert2": "^11.4.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
