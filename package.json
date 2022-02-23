@@ -8,8 +8,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.0",
     "react": "latest",
-    "react-router-dom": "^5.3.0",
     "react-dom": "latest",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "latest",
     "web-vitals": "^2.1.4"
   },
