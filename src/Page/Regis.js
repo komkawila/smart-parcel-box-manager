@@ -12,22 +12,8 @@ const Regis = () => {
     const [waiting,setWaiting] = useState(true);
 
     const {uid} = useParams();
-    console.log(`uid = `); 
-    console.log(uid);
-    
-    // useEffect(()=>{
-    //     axios.get(`${api}/api/user/user/id/${uid}`).then((res)=>{
-    //         console.log(`res = `); 
-    //         console.log(res.data.data);
-    //         if(res.data.data.status){
-    //             setName(res.data.data.message.user_name);
-    //             setEmail(res.data.data.message.user_email);
-    //             setTel(res.data.data.message.user_tel);
-    //             setData(res.data.data.message);
-    //             setWaiting(true);
-    //         }
-    //     });
-    // },[]);
+    // console.log(`uid = `); 
+    // console.log(uid);
     
     const saveFunc = () => {
         Swal.fire({
@@ -47,8 +33,8 @@ const Regis = () => {
                     user_email : data.user_email,
                     userid : uid
                 }).then((res)=>{
-                    console.log(`res = `); 
-                    console.log(res.data.data);
+                    // console.log(`res = `); 
+                    // console.log(res.data.data);
                     if(res.data.data.status){
                         Swal.fire({
                             title: 'ยืนยันการบันทึกข้อมูล?',
