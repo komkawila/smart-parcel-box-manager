@@ -42,6 +42,7 @@ const Regis = () => {
                             icon: 'success',
                             confirmButtonColor: '#008741'
                         });
+                        window.close();
                     }else {
                         Swal.fire({
                             title: 'บันทึกข้อมูลไม่สำเร็จ?',
