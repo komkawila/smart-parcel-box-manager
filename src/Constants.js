@@ -1,1 +1,1 @@
-export const api = "https://linebot.komkawila.com";
+export const api = "https://api.phanuwat.info";
