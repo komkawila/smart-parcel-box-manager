@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { 
+import {
     useHistory,
     useParams
 } from "react-router-dom";
 import axios from 'axios';
-import {api} from '../Constants'
+import { api } from '../Constants'
 import Swal from 'sweetalert2'
 
 const Regis = () => {
-  const [data,setData] = useState([]);
-    const [waiting,setWaiting] = useState(true);
+    const [data, setData] = useState([]);
+    const [waiting, setWaiting] = useState(true);
 
-    const {uid} = useParams();
+    const { uid } = useParams();
     // console.log(`uid = `); 
     // console.log(uid);
-    
+    const history = useHistory();
     const saveFunc = () => {
         Swal.fire({
             title: 'ยืนยันการบันทึกข้อมูล?',
@@ -24,18 +24,18 @@ const Regis = () => {
             confirmButtonColor: '#008741',
             cancelButtonColor: '#d33',
             confirmButtonText: 'ใช่, บันทึกทันที!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 console.log(data)
-                axios.post(`${api}/api/user/user/add`,{
-                    user_name : data.user_name,
-                    user_tel : data.user_tel,
-                    user_email : data.user_email,
-                    userid : uid
-                }).then((res)=>{
+                axios.post(`${api}/api/user/user/add`, {
+                    user_name: data.user_name,
+                    user_tel: data.user_tel,
+                    user_email: data.user_email,
+                    userid: uid
+                }).then((res) => {
                     // console.log(`res = `); 
                     // console.log(res.data.data);
-                    if(res.data.data.status){
+                    if (res.data.data.status) {
                         Swal.fire({
                             title: 'ยืนยันการบันทึกข้อมูล?',
                             text: "ยืนยันการบันทึกข้อมูล",
@@ -43,21 +43,26 @@ const Regis = () => {
                             confirmButtonColor: '#008741'
                         });
                         window.close();
-                    }else {
+                    } else {
                         Swal.fire({
                             title: 'บันทึกข้อมูลไม่สำเร็จ?',
-                            text: "บันทึกข้อมูลไม่สำเร็จ",
+                            text: "มีข้อมูลแล้ว",
                             icon: 'error',
                             confirmButtonColor: '#008741'
-                        });
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // history.push(`/edit/${uid}`);
+                            }
+                          })
+                        // 
                     }
                 });
-                
+
             }
         });
     }
-    if(waiting)
-        return ( 
+    if (waiting)
+        return (
             <section class="section">
                 <div class="field">
                     <label class="label">LINE ID</label>
@@ -68,26 +73,26 @@ const Regis = () => {
                 <div class="field">
                     <label class="label">ชื่อ</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="กรุณากรอก ชื่อ-สกุล" value={data.user_name} onChange={e => setData({ ...data, user_name: e.target.value })}/>
+                        <input class="input" type="text" placeholder="กรุณากรอก ชื่อ-สกุล" value={data.user_name} onChange={e => setData({ ...data, user_name: e.target.value })} />
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">อีเมล</label>
                     <div class="control">
-                        <input class="input" type="email" placeholder="กรุณากรอก อีเมล" value={data.user_email} onChange={e => setData({ ...data, user_email: e.target.value })}/>
+                        <input class="input" type="email" placeholder="กรุณากรอก อีเมล" value={data.user_email} onChange={e => setData({ ...data, user_email: e.target.value })} />
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">เบอร์โทรศัพท์</label>
                     <div class="control">
-                        <input class="input" type="tel" placeholder="กรุณากรอก เบอร์โทรศัพท์" value={data.user_tel} onChange={e => setData({ ...data, user_tel: e.target.value })}/>
+                        <input class="input" type="tel" placeholder="กรุณากรอก เบอร์โทรศัพท์" value={data.user_tel} onChange={e => setData({ ...data, user_tel: e.target.value })} />
                     </div>
                 </div>
                 <div class="control">
                     <button class="button is-primary" onClick={saveFunc}>บันทึก</button>
                 </div>
             </section>
-            
+
         );
     else {
         return (

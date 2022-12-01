@@ -13,6 +13,7 @@ const Edit = () => {
     const {uid} = useParams();
     console.log(`uid = `); 
     console.log(uid);
+    const [massagewaitting,setMassagewaitting] = useState("Loading....");
     
     useEffect(()=>{
         axios.get(`${api}/api/user/user/id/${uid}`).then((res)=>{
@@ -21,6 +22,9 @@ const Edit = () => {
             if(res.data.data.status){
                 setData(res.data.data.message);
                 setWaiting(true);
+                setMassagewaitting("Loading....");
+            }else {
+                setMassagewaitting("Not Found UID....");
             }
         });
     },[]);
@@ -94,7 +98,7 @@ const Edit = () => {
     else {
         return (
             <section class="section">
-                <h1>Loading....</h1>
+                <h1>{massagewaitting}</h1>
             </section>
         );
     }

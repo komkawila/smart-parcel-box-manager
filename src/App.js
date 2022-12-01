@@ -30,25 +30,28 @@ export default function App() {
         <hr /> */}
 
         <Nav />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/edit/:uid">
-            <Edit />
-          </Route>
-          <Route path="/regis/:uid">
-            <Regis />
-          </Route>
+        <div className="container">
 
-        </Switch>
-        <Footer/>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/edit/:uid">
+              <Edit />
+            </Route>
+            <Route path="/regis/:uid">
+              <Regis />
+            </Route>
+
+          </Switch>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
