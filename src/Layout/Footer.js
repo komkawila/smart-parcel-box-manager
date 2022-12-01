@@ -6,7 +6,7 @@ const Footer = () => {
         <footer class="footer">
             <div class="content has-text-centered">
                 <p>
-                    <strong>Smart Parcel Box</strong> by <a href="https://komkawila.com">Phanuwat Kawila</a>. The source code is licensed
+                    <strong>Smart Parcel Box</strong> by <a href="http://www.sosscorp.com/">SOSS</a>. The source code is licensed
                    The website content
                 </p>
             </div>
